@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const Register = () => {
-    const { googleLogin, createUserEmailAndPassword} = useContext(AuthContext);
+    const { googleLogin, createUserEmailAndPassword,UpdateProfile} = useContext(AuthContext);
     const [errorMessage,setErrorMessage] = useState('')
     const navigate = useNavigate()
     const createEmailWithPassword = async (e) => {
@@ -15,6 +15,8 @@ const Register = () => {
         const from = e.target
         const email = from.email.value
         const password = from.password.value
+        const name = from.name.value
+        const photo = from.photo.value
         if (password.length < 6) {
             setErrorMessage("Password must contain last 6 characters");
             return;
@@ -29,7 +31,8 @@ const Register = () => {
         
 
         try{
-            await createUserEmailAndPassword(email,password)
+            await createUserEmailAndPassword(email,password);
+            UpdateProfile(name,photo)
             toast.success('Create an account successfully', { id: tostLogin })
             navigate('/')
         }
@@ -37,6 +40,8 @@ const Register = () => {
             toast.error(error.message, { id: tostLogin })
         
     }}
+
+
     const googleLoginHandel = async () => {
         const tostLogin = toast.loading('Logging in ....')
         try {
@@ -85,7 +90,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className=" text-sm">Name</span>
                                 </label>
-                                <input type="email" name="name" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
+                                <input type="name" name="name" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -98,7 +103,7 @@ const Register = () => {
                                     <span className=" text-sm">Photo URL</span>
                                 </label>
                                 
-                                <input type="url" name="photoUrl" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
+                                <input type="url" name="photo" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">

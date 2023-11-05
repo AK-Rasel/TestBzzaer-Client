@@ -8,6 +8,8 @@ import Register from "../Pages/Register";
 import Cart from "../Pages/Cart";
 import Error from "../Pages/Error";
 import MyAddedFoodItems from "../Pages/MyAddedFoodItems";
+import AddFoodItem from "../Pages/AddFoodItem";
+import Order from "../Pages/Order";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
         {
             path:"my-added-food-items",
             element:<MyAddedFoodItems/>
+        },
+        {
+            path:"added-food-item",
+            element:<AddFoodItem/>
+        },
+        {
+            path:"order",
+            element:<Order/>
         },
         {
             path:"cart",
