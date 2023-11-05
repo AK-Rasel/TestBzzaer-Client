@@ -83,9 +83,22 @@ const Register = () => {
                         <form onSubmit={createEmailWithPassword}>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className=" text-sm">Name</span>
+                                </label>
+                                <input type="email" name="name" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className=" text-sm">Email</span>
                                 </label>
                                 <input type="email" name="email" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className=" text-sm">Photo URL</span>
+                                </label>
+                                
+                                <input type="url" name="photoUrl" className="border-b px-4 h-7 text-lg text-[#f55211] border-gray-300  outline-none" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -96,6 +109,7 @@ const Register = () => {
                     <p href="#" className=" text-red-500 text-base font-normal  underline">{errorMessage}</p>
                   </label>
                             </div>
+                            
                             <div className="flex justify-end mt-6">
                                 <button className=" w-full py-3 px-4 rounded-lg bg-[#f56511] text-white hover:bg-[#f55211]  text-base font-semibold">Continue</button>
                             </div>
