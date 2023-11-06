@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from "../Auth/AuthProvider";
 import { useContext, useState } from "react";
@@ -8,7 +8,9 @@ import toast from "react-hot-toast";
 const Register = () => {
     const { googleLogin, createUserEmailAndPassword,UpdateProfile} = useContext(AuthContext);
     const [errorMessage,setErrorMessage] = useState('')
-    const navigate = useNavigate()
+    const locat = useLocation()
+    const naviget = useNavigate();
+
     const createEmailWithPassword = async (e) => {
         e.preventDefault();
 
@@ -34,7 +36,7 @@ const Register = () => {
             await createUserEmailAndPassword(email,password);
             UpdateProfile(name,photo)
             toast.success('Create an account successfully', { id: tostLogin })
-            navigate('/')
+            naviget(locat?.state ? locat?.state : "/")
         }
         catch (error) {
             toast.error(error.message, { id: tostLogin })
@@ -47,7 +49,7 @@ const Register = () => {
         try {
             await googleLogin()
             toast.success('Logged in successfully', { id: tostLogin })
-            navigate('/')
+            naviget(locat?.state ? locat?.state : "/")
             
         }
 

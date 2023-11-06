@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 
 import { useContext } from "react";
@@ -7,7 +7,8 @@ import { AuthContext } from "../Auth/AuthProvider";
 
 const Login = () => {
     const { loginWithEmailAndPassword,googleLogin} = useContext(AuthContext);
-    const navigate =  useNavigate()
+    const locat = useLocation()
+    const naviget =  useNavigate()
 //    email login
     const loginEmailWithPassword = async(e) =>{
         e.preventDefault();
@@ -22,7 +23,7 @@ const Login = () => {
         try{
             await loginWithEmailAndPassword(email,password)
             toast.success('Logged in successfully', { id: tostLogin })
-            navigate('/')
+            naviget(locat?.state ? locat?.state : "/")
         }
         catch (error) {
             toast.error(error.message, { id: tostLogin })
@@ -35,7 +36,7 @@ const Login = () => {
         try {
             await googleLogin()
             toast.success('Logged in successfully', { id: tostLogin })
-            navigate('/')
+            naviget(locat?.state ? locat?.state : "/")
         }
 
         catch (error) {
