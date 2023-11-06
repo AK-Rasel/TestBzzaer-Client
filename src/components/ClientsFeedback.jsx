@@ -12,7 +12,7 @@ const ClientsFeedback = () => {
             .then(res => res.json())
             .then(data => setclientsFeedbacks(data))
     }, [])
-    console.log(clientsFeedbacks)
+  
     const settings = {
 
         infinite: true,

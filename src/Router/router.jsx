@@ -11,7 +11,7 @@ import MyAddedFoodItems from "../Pages/MyAddedFoodItems";
 import AddFoodItem from "../Pages/AddFoodItem";
 import Order from "../Pages/Order";
 import FoodDetail from "../Pages/FoodDetail";
-import PrivetRouter from "../PrivetRouter/PrivetRouter";
+// import PrivetRouter from "../PrivetRouter/PrivetRouter";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         },
         {
             path:"all-food-items",
-            element:<PrivetRouter><AllFoodItems/></PrivetRouter>,
+            element:<AllFoodItems/>,
             loader:() => fetch('http://localhost:5000/api/v1/all-food-items')
         },
         {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         {
             path:"food-detail/:id",
             element:<FoodDetail/>,
-            loader: (params) => fetch(`http://localhost:5000/api/v1/all-food-items/food-detail/${params._id}`)
+            loader: () => fetch('http://localhost:5000/api/v1/all-food-items')
         },
         {
             path:"added-food-item",

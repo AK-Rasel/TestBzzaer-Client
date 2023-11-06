@@ -8,7 +8,7 @@ import { AuthContext } from "../Auth/AuthProvider";
 const Login = () => {
     const { loginWithEmailAndPassword,googleLogin} = useContext(AuthContext);
     const locat = useLocation()
-    const naviget =  useNavigate()
+    const navigate =  useNavigate()
 //    email login
     const loginEmailWithPassword = async(e) =>{
         e.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
         try{
             await loginWithEmailAndPassword(email,password)
             toast.success('Logged in successfully', { id: tostLogin })
-            naviget(locat?.state ? locat?.state : "/")
+            navigate(locat?.state ? locat?.state : "/")
         }
         catch (error) {
             toast.error(error.message, { id: tostLogin })
@@ -36,7 +36,7 @@ const Login = () => {
         try {
             await googleLogin()
             toast.success('Logged in successfully', { id: tostLogin })
-            naviget(locat?.state ? locat?.state : "/")
+            navigate(locat?.state ? locat?.state : "/")
         }
 
         catch (error) {

@@ -9,7 +9,7 @@ const Register = () => {
     const { googleLogin, createUserEmailAndPassword,UpdateProfile} = useContext(AuthContext);
     const [errorMessage,setErrorMessage] = useState('')
     const locat = useLocation()
-    const naviget = useNavigate();
+    const navigate = useNavigate();
 
     const createEmailWithPassword = async (e) => {
         e.preventDefault();
@@ -36,7 +36,7 @@ const Register = () => {
             await createUserEmailAndPassword(email,password);
             UpdateProfile(name,photo)
             toast.success('Create an account successfully', { id: tostLogin })
-            naviget(locat?.state ? locat?.state : "/")
+            navigate(locat?.state ? locat?.state : "/")
         }
         catch (error) {
             toast.error(error.message, { id: tostLogin })
@@ -49,7 +49,7 @@ const Register = () => {
         try {
             await googleLogin()
             toast.success('Logged in successfully', { id: tostLogin })
-            naviget(locat?.state ? locat?.state : "/")
+            navigate(locat?.state ? locat?.state : "/")
             
         }
 

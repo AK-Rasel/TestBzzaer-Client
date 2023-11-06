@@ -8,7 +8,7 @@ const Gallery = () => {
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])
-    console.log(categorys)
+    
     return (
         <div className='my-16'>
             <div className='grid justify-center text-center'>
