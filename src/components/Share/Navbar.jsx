@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
   const navigate = useNavigate()
-  console.log(user)
+  // console.log(user)
   const logoutHandel = () => {
     logOut()
       .then(() => {
@@ -57,7 +57,7 @@ const Navbar = () => {
 
           </ul>
         </div>
-        <Link to={'/'} className="font-bold  normal-case text-2xl">Taste<span className="text-[#f56511]">Bazaar</span></Link>
+        <Link to={'/'} className="font-bold  normal-case text-3xl">Taste<span className="text-[#f56511]">Bazaar</span></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="   menu-horizontal px-1 gap-6  ">
@@ -73,13 +73,13 @@ const Navbar = () => {
           user ? <>
             <div>
               <details className="dropdown dropdown-end ">
-                <summary className=" btn bg-white outline-none border-none"><div className="avatar">
+                <summary className=" btn hover:bg-white bg-white outline-none border-none"><div className="avatar">
                   <div className=" rounded-full ring ring-[#f56511] ring-offset-base-100 ring-offset-2 w-7">
                     <img src={user.photoURL} />
                   </div>
                 </div></summary>
                 <ul className="p-8 shadow space-y-2  dropdown-content z-10 bg-base-100 rounded-box w-52 ">
-                  <li><p>{user.displayName}</p></li>
+                  <li className="font-semibold text-base underline"><p>{user.displayName}</p></li>
 
                   <li className="font-semibold text-base"><NavLink
                     to="/my-added-food-items"
@@ -105,7 +105,7 @@ const Navbar = () => {
                       isPending ? "pending" : isActive ? "text-[#f56511] underline link link-hover" : ""
                     }
                   >
-                    Order
+                     Ordered items
                   </NavLink></li>
 
 

@@ -3,16 +3,14 @@
 const Blog = () => {
     return (
         <div >
-            <div>
-                <div className="hero min-h-[40vh] mb-16" style={{ backgroundImage: 'url(https://i.ibb.co/KFBTyJW/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay.jpg)' }}>
+            <div className="hero min-h-[40vh] mb-16" style={{ backgroundImage: 'url(https://i.ibb.co/KFBTyJW/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay.jpg)' }}>
                     <div className="hero-overlay "></div>
                     <div className="hero-content text-center text-neutral-content">
-                        <div className="max-w-md">
-                            <h1 className="text-8xl ">Blog</h1>
+                        <div className="max-w-sm">
+                            <h1 className="lg:text-8xl text-5xl md:text-6xl ">Blog</h1>
                         </div>
                     </div>
                 </div>
-            </div>
             {/*  */}
             
             <div className="container mx-auto px-10 lg:px-0">

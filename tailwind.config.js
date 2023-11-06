@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-      
+      fontFamily: {
+        Ubuntu: 'Ubuntu, sans-serif', // Adds a new `font-display` class
+      }
     },
   },
   plugins: [require("daisyui")],

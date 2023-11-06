@@ -9,7 +9,7 @@ const Footer = () => {
 
         <nav >
           <div >
-            <p className="font-bold  normal-case text-2xl">Taste<span className="text-[#f56511]">Bazaar</span></p>
+            <p className="font-bold  normal-case text-3xl">Taste<span className="text-[#f56511]">Bazaar</span></p>
             <hr className="w-full border-[#f56511]" />
           </div>
           <ul className="flex gap-6 md:gap-3 lg:gap-6 flex-row md:flex-col lg:flex-row  ">
