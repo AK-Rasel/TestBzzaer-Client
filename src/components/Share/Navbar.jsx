@@ -82,7 +82,7 @@ const Navbar = () => {
                   <li className="font-semibold text-base underline"><p>{user.displayName}</p></li>
 
                   <li className="font-semibold text-base"><NavLink
-                    to="/my-added-food-items"
+                    to="/my-food-items"
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ? "text-[#f56511] underline link link-hover" : ""
                     }

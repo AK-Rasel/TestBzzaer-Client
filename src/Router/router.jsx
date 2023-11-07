@@ -7,10 +7,12 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Cart from "../Pages/Cart";
 import Error from "../Pages/Error";
-import MyAddedFoodItems from "../Pages/MyAddedFoodItems";
+import MyAddedFoodItems from "../Pages/MyFoodItems";
 import AddFoodItem from "../Pages/AddFoodItem";
 import Order from "../Pages/Order";
 import FoodDetail from "../Pages/FoodDetail";
+import MyFoodItems from "../Pages/MyFoodItems";
+import PrivetRouter from "../PrivetRouter/PrivetRouter";
 // import PrivetRouter from "../PrivetRouter/PrivetRouter";
 
 const router = createBrowserRouter([
@@ -33,8 +35,8 @@ const router = createBrowserRouter([
             element:<Blog/>
         },
         {
-            path:"my-added-food-items",
-            element:<MyAddedFoodItems/>
+            path:"my-food-items",
+            element:<PrivetRouter><MyFoodItems/></PrivetRouter>
         },
         {
             path:"food-detail/:id",
@@ -43,11 +45,12 @@ const router = createBrowserRouter([
         },
         {
             path:"added-food-item",
-            element:<AddFoodItem/>
+            element:<PrivetRouter><AddFoodItem/></PrivetRouter>
         },
         {
             path:"order",
-            element:<Order/>
+            element:<Order/>,
+            
         },
         {
             path:"cart",

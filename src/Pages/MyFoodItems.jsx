@@ -1,6 +1,6 @@
 
 
-const MyAddedFoodItems = () => {
+const MyFoodItems = () => {
     return (
         <div>
             <h1>My added food items</h1>
@@ -8,4 +8,4 @@ const MyAddedFoodItems = () => {
     );
 };
 
-export default MyAddedFoodItems;
+export default MyFoodItems;
