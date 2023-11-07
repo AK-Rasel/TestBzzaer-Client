@@ -18,7 +18,7 @@ const Purchase = () => {
   e.preventDefault()
   
   const from = e.target
-  const foodName = from.food_name.value
+  const foodname = from.food_name.value
   const price = from.price.value
   const quantity = from.quantity.value
 
@@ -30,7 +30,7 @@ const Purchase = () => {
 
     const  purchase = {
       email,
-      foodName,
+      foodname,
       price: price,
       quantity,
       displayName,

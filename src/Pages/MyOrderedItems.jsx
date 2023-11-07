@@ -16,14 +16,13 @@ const MyOrderedItems = () => {
             .then(res => res.json())
             .then(data => setOrderedInformations(data))
     }, [])
-    console.log(orderedInformations)
+    // console.log(orderedInformations)
     return (
-        <div>
-            <h1>{orderedInformations.length}</h1>
-            <div className="container  mx-auto">
+        <div className="">
+            <div className="container  mx-auto ">
 
-                <div className="overflow-x-auto">
-                    <table className="table">
+                <div className="overflow-x-auto ">
+                    <table className="table ">
                         {/* head */}
                         <thead>
                             <tr>

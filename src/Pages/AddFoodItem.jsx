@@ -2,11 +2,44 @@
 
 import { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
 const AddFoodItem = () => {
     const { user } = useContext(AuthContext)
+    const addFoodHandler = e => {
+
+      e.preventDefault()
+      const from = e.target
+      const foodname = from.food_name.value
+      const price = from.price.value
+      const quantity = from.quantity.value
+      const email = from.email.value
+      const name = from.name.value
+      const foodcategory = from.food_category.value
+      const country = from.food_origin.value
+      const description = from.description.value
+      console.log(foodname,price,quantity,email,name,foodcategory,country,description)
+
+     const addFood = {foodname,price :price ,quantity,email,name,foodcategory,country,description}
+
+
+
+      fetch('http://localhost:5000/all-food-items',{
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(addFood)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.insertedId) {
+        toast.success('Purchase successfully Done')
+      }
+    })
+    }
     return (
         <div className="hero  min-h-[70vh] opacity-6 " style={{backgroundImage: 'url(https://i.ibb.co/rQGt2cf/top-view-table-full-delicious-food.jpg)'}}>
         <div className=" items-center justify-center m  lg:flex w-full   p-8">
@@ -20,12 +53,12 @@ const AddFoodItem = () => {
              
   
               
-              <form >
+              <form onSubmit={addFoodHandler}>
                 <div className="form-control">
                   <label className="label">
                     <span className=" text-sm">Name</span>
                   </label>
-                  <input type="text" disabled defaultValue={user.displayName} name="name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                  <input  type="text" disabled defaultValue={user.displayName} name="name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
                 </div>
                 <div className="form-control">
                   <label className="label">
