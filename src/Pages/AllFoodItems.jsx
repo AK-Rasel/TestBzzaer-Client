@@ -34,7 +34,7 @@ const AllFoodItems = () => {
                                         <div className="badge badge-secondary text-white"> {foodData.Quantity}</div>
                                     </h2>
 
-                                    <h2 className="text-lg font-semibold">Tk {foodData.Price}</h2>
+                                    <h2 className="text-lg font-semibold">$ {foodData.Price}</h2>
 
                                     <div className="rating">
                                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-[#F56511]" />

@@ -1,15 +1,16 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData,  } from "react-router-dom";
 
 
 const FoodDetail = () => {
     const singleFoodData = useLoaderData()
+    
 
-    const { id } = useParams()
+    // const { id } = useParams()
 
-    const singleFoodDetail = singleFoodData.find(singleFoodDataDetail => singleFoodDataDetail._id == id)
+    // const singleFoodDetail = singleFoodData.find(singleFoodDataDetail => singleFoodDataDetail._id == id)
     const { _id,FoodName, FoodImage, FoodCategory, Price, Rating, Quantity, Description, Count, Country
 
-    } = singleFoodDetail
+    } = singleFoodData
 
     // console.log(singleFoodDetail)
     return (
@@ -23,13 +24,13 @@ const FoodDetail = () => {
                     <p className="text-lg">Made by who add</p>
                     <p className="text-lg">Food Origin : <span className="font-light ">{Country}</span></p>
                     <p className="text-lg  font-Ubuntu">{Description}</p>
-                    <Link to={`order/${_id}`} className="grid justify-center lg:justify-end">
-                    <button className="  px-4 font-Ubuntu text-white btn my-4  rounded-xl hover:bg-[#F56511] hover:rounded-full bg-[#F56511]">Order Now</button>
+                    <Link to={`/purchase/${_id}`} className="grid justify-center lg:justify-end">
+                    <button className="  px-4 font-Ubuntu text-white btn my-4  rounded-xl hover:bg-[#F56511] hover:rounded-full bg-[#F56511]">Purchase Now</button>
                     </Link>
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default FoodDetail;

@@ -31,7 +31,7 @@ const ClientsFeedback = () => {
             </div>
             <Slider {...settings} className="h-full">
             {
-                clientsFeedbacks.map(clientsFeedback => (<div key={clientsFeedback.index} className="mb-10">
+                clientsFeedbacks.map(clientsFeedback => (<div key={clientsFeedback.id} className="mb-10">
                     <div className=" w-full">
                         <div className="card rounded-xl lg:w-2/6 mx-auto  mb-10   m-10 p-5">
                             <div className="avatar grid justify-center">

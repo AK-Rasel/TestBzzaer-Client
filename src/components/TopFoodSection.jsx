@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const TopFoodSection = () => {
     const [topFoods, setTopFood] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/all-food-items')
+        fetch('http://localhost:5000/all-food-items')
             .then(res => res.json())
             .then(data => setTopFood(data))
     }, [])
@@ -31,7 +31,7 @@ const TopFoodSection = () => {
                                     <div className="badge badge-secondary text-white"> {topFood.Quantity}</div>
                                 </h2>
 
-                                <h2 className="text-lg font-semibold">Tk {topFood.Price}</h2>
+                                <h2 className="text-lg font-semibold">$ {topFood.Price}</h2>
 
                                 <div className="rating">
                                     <input type="radio" name="rating-2" className="mask mask-star-2 bg-[#F56511]" />
@@ -42,8 +42,8 @@ const TopFoodSection = () => {
                                 </div>
 
                                 <div className="card-actions justify-end">
-                                    <Link >
-                                        <button className="px-6 py-3 rounded-full bg-[#F56511] text-white">Details</button>
+                                    <Link to={`/food-detail/${topFood._id}`}>
+                                        <button className="px-6 py-3 rounded-xl hover:bg-[#F56511] hover:rounded-full bg-[#F56511] font-Ubuntu text-white">Details</button>
                                     </Link>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@ const TopFoodSection = () => {
             <div>
 
             </div>
-            <Link className="grid justify-center my-10">
-                <button className="px-6 py-3 rounded-full bg-[#F56511] hover:border-[#F56511] border-2 border-[#F56511] font-medium shadow-lg  text-xl hover:bg-white hover:text-[#F56511]  text-white">Details</button>
+            <Link to={"/all-food-items"} className="grid  justify-center my-10">
+                <button className="px-4 font-Ubuntu text-base text-white btn my-4  rounded-xl hover:bg-[#F56511] hover:rounded-full bg-[#F56511]">See More</button>
             </Link>
         </div>
     );

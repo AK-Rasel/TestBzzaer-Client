@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         {
             path:"all-food-items",
             element:<AllFoodItems/>,
-            loader:() => fetch('http://localhost:5000/api/v1/all-food-items')
+            loader:() => fetch('http://localhost:5000/all-food-items')
         },
         {
             path:"blog",
@@ -40,15 +40,16 @@ const router = createBrowserRouter([
         {
             path:"food-detail/:id",
             element:<FoodDetail/>,
-            loader: () => fetch('http://localhost:5000/api/v1/all-food-items')
+            loader: ({params}) => fetch(`http://localhost:5000/all-food-items/${params.id}`)
         },
         {
             path:"added-food-item",
             element:<PrivetRouter><AddFoodItem/></PrivetRouter>
         },
         {
-            path:"purchase",
+            path:"purchase/:id",
             element:<Purchase/>,
+            loader: ({params}) => fetch(`http://localhost:5000/all-food-items/purchase-detail/${params.id}`)
             
         },
         {
