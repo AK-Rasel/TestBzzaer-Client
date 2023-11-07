@@ -7,12 +7,11 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Cart from "../Pages/Cart";
 import Error from "../Pages/Error";
-import MyAddedFoodItems from "../Pages/MyFoodItems";
 import AddFoodItem from "../Pages/AddFoodItem";
-import Order from "../Pages/Order";
 import FoodDetail from "../Pages/FoodDetail";
 import MyFoodItems from "../Pages/MyFoodItems";
 import PrivetRouter from "../PrivetRouter/PrivetRouter";
+import Purchase from "../Pages/Purchase";
 // import PrivetRouter from "../PrivetRouter/PrivetRouter";
 
 const router = createBrowserRouter([
@@ -48,8 +47,8 @@ const router = createBrowserRouter([
             element:<PrivetRouter><AddFoodItem/></PrivetRouter>
         },
         {
-            path:"order",
-            element:<Order/>,
+            path:"purchase",
+            element:<Purchase/>,
             
         },
         {
