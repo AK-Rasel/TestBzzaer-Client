@@ -2,12 +2,13 @@ import { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import toast from "react-hot-toast";
 // import { useState } from "react";
 const Purchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData()
   const { email, displayName } = user
-  const { FoodName, Price} = foodData
+  const { foodname, price,foodimage,country,name} = foodData
 
   // const [price,setPrice] = useState('')
   // const [quantity,setQuantity] = useState('')
@@ -21,15 +22,42 @@ const Purchase = () => {
   const price = from.price.value
   const quantity = from.quantity.value
 
-  const email = from.email.value
-  const name = from.name.value
+  const email = user?.email
+  const displayName = from.name.value
   const date  = from.date.value
 
 
 
-    console.log(email)
+    const  purchase = {
+      email,
+      foodName,
+      price: price,
+      quantity,
+      displayName,
+      date,
+      foodimage,
+      country,
+      name
+    }
+    console.log(purchase)
+
+    fetch('http://localhost:5000/purchase',{
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(purchase)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.insertedId) {
+        toast.success('Purchase successfully Done')
+      }
+    })
   
    }
+
+   
 
   return (
     <div className="hero  min-h-[70vh] opacity-6 " style={{ backgroundImage: 'url(https://i.ibb.co/rQGt2cf/top-view-table-full-delicious-food.jpg)' }}>
@@ -45,14 +73,14 @@ const Purchase = () => {
                 <label className="label">
                   <span className="label-text">Food Name</span>
                 </label>
-                <input type="text" defaultValue={FoodName} name="food_name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                <input type="text" defaultValue={foodname} name="food_name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
               </div>
 
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Price</span>
                 </label>
-                <input type="number"  defaultValue={"$" + Price} name="price" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                <input type="number"  defaultValue={price} name="price" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
               </div>
               <div className="form-control">

@@ -5,13 +5,13 @@ import AllFoodItems from "../Pages/AllFoodItems";
 import Blog from "../Pages/Blog";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import Cart from "../Pages/Cart";
 import Error from "../Pages/Error";
 import AddFoodItem from "../Pages/AddFoodItem";
 import FoodDetail from "../Pages/FoodDetail";
 import MyFoodItems from "../Pages/MyFoodItems";
 import PrivetRouter from "../PrivetRouter/PrivetRouter";
 import Purchase from "../Pages/Purchase";
+import MyOrderedItems from "../Pages/MyOrderedItems";
 // import PrivetRouter from "../PrivetRouter/PrivetRouter";
 
 const router = createBrowserRouter([
@@ -48,13 +48,13 @@ const router = createBrowserRouter([
         },
         {
             path:"purchase/:id",
-            element:<Purchase/>,
+            element:<PrivetRouter><Purchase/></PrivetRouter>,
             loader: ({params}) => fetch(`http://localhost:5000/all-food-items/purchase-detail/${params.id}`)
             
         },
         {
-            path:"cart",
-            element:<Cart/>
+            path:"ordered-items",
+            element:<PrivetRouter><MyOrderedItems/></PrivetRouter>
         },
         {
             path:"login",

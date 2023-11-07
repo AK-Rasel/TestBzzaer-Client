@@ -25,16 +25,16 @@ const AllFoodItems = () => {
 
                             <div className="card  bg-base-100 shadow-xl">
 
-                                <figure className="h-60 bg-cover"><img src={foodData.FoodImage} alt="Shoes" /></figure>
+                                <figure className="h-60 bg-cover"><img src={foodData.foodimage} alt="Shoes" /></figure>
 
                                 <div className="card-body">
-                                    <div className="badge badge-outline">{foodData.FoodCategory}</div>
+                                    <div className="badge badge-outline">{foodData.foodcategory}</div>
                                     <h2 className="card-title">
-                                        {foodData.FoodName}
-                                        <div className="badge badge-secondary text-white"> {foodData.Quantity}</div>
+                                        {foodData.foodname}
+                                        <div className="badge badge-secondary text-white"> {foodData.quantity}</div>
                                     </h2>
 
-                                    <h2 className="text-lg font-semibold">$ {foodData.Price}</h2>
+                                    <h2 className="text-lg font-semibold">$ {foodData.price}</h2>
 
                                     <div className="rating">
                                         <input type="radio" name="rating-2" className="mask mask-star-2 bg-[#F56511]" />

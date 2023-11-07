@@ -20,7 +20,7 @@ const Gallery = () => {
                 {
                     categorys?.slice(0,8).map(category => (<div key={category._id} className="">
                         <div className=" bg-base-100 shadow-xl ">
-                            <figure><img className="h-60 w-full " src={category.FoodCategoryImage} alt="Shoes" /></figure>
+                            <figure><img className="h-60 w-full " src={category.foodcategoryimage} alt="Shoes" /></figure>
                             
                         </div>
                     </div>))

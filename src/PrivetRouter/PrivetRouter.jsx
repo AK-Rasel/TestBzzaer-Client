@@ -14,7 +14,7 @@ const PrivetRouter = ({children}) => {
     if (loading) {
         return <div className="w-7xl h-screen flex justify-center mx-auto items-center"><span className="loading loading-spinner loading-lg  "></span></div>
     }
-    if (user) {
+    if (user?.email) {
         return children
     }
     return <Navigate state={location.pathname} to="/login"></Navigate>;

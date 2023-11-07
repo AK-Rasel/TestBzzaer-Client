@@ -22,16 +22,16 @@ const TopFoodSection = () => {
 
                         <div className="card mx-8 bg-base-100 shadow-xl">
 
-                            <figure className="h-60 bg-cover"><img src={topFood.FoodImage} alt="Shoes" /></figure>
+                            <figure className="h-60 bg-cover"><img src={topFood.foodimage} alt="Shoes" /></figure>
 
                             <div className="card-body">
-                                <div className="badge badge-outline">{topFood.FoodCategory}</div>
+                                <div className="badge badge-outline">{topFood.foodcategory}</div>
                                 <h2 className="card-title">
-                                    {topFood.FoodName}
-                                    <div className="badge badge-secondary text-white"> {topFood.Quantity}</div>
+                                    {topFood.foodname}
+                                    <div className="badge badge-secondary text-white"> {topFood.quantity}</div>
                                 </h2>
 
-                                <h2 className="text-lg font-semibold">$ {topFood.Price}</h2>
+                                <h2 className="text-lg font-semibold">$ {topFood.price}</h2>
 
                                 <div className="rating">
                                     <input type="radio" name="rating-2" className="mask mask-star-2 bg-[#F56511]" />
