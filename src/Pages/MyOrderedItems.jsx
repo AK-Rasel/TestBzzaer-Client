@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import OrderedInformations from "../components/OrderedInformations/OrderedInformations";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 // import OrderedInformations from "../components/OrderedInformations/OrderedInformations";
 
 
@@ -19,17 +21,22 @@ const MyOrderedItems = () => {
     }, [])
     // console.log(orderedInformations)
     const deleteHandler = id => {
-        const process = confirm('are you ure you want to delete')
-        if (process) {
+        
             fetch(`http://localhost:5000/purchase/${id}`,{
                 method: "DELETE"
             })
             .then(res => res.json())
             .then(date => {
                 console.log(date)
+                if (date.deletedCount > 0) {
+                    toast.success('Successfully delete!')
+                    const remaining = orderedInformations.filter(orderedInformation => orderedInformation._id !== id);
+                    setOrderedInformations(remaining)
+                }
             })
-        }
+       
     }
+    
     return (
         <div className="">
              <Helmet>
