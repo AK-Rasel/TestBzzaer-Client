@@ -1,22 +1,11 @@
 
 
 
-const OrderedInformations = ({ orderedInformation }) => {
+const OrderedInformations = ({ orderedInformation,deleteHandler }) => {
     // console.log(orderedInformation)
     const { _id, foodname, price, name, country, date, foodimage } = orderedInformation
 
-    const deleteHandler = id => {
-        const process = confirm('are you ure you want to delete')
-        if (process) {
-            fetch(`http://localhost:5000/purchase/${id}`,{
-                method: "DELETE"
-            })
-            .then(res => res.json())
-            .then(date => {
-                console.log(date)
-            })
-        }
-    }
+    
     return (
         <tr>
            

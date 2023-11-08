@@ -1,15 +1,112 @@
+import { useContext } from 'react';
+import { GrUpdate } from 'react-icons/gr';
+import { AuthContext } from '../../Auth/AuthProvider';
+import { Link } from 'react-router-dom';
 
-
-const MyFoodItem = ({foodItem}) => {
+const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
+    const { user } = useContext(AuthContext)
     const { _id, foodname, price, name, country, date, foodimage } = foodItem
+
+
+
     return (
         <tr>
-           
             <th>
                 <label>
-                    <button className="btn btn-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
+                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                    <Link><button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}><GrUpdate /></button></Link>
+                    <dialog id="my_modal_1" className="modal">
+                        <div className="modal-box ">
+                            <div className="  min-h-[70vh] opacity-6 " >
+
+                                <div className=" items-center justify-center m  lg:flex w-full   p-8">
+
+                                    {/* card body */}
+                                    <div className=" w-full shadow-2xl bg-white rounded-lg">
+
+                                        <div className="card-body  gap-4">
+                                            <p className="font-bold  normal-case text-3xl "><span className="text-[#f56511]">Add food</span> item</p>
+                                            <form onSubmit={updateFoodHandler}>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className=" text-sm">Name</span>
+                                                    </label>
+                                                    <input type="text" disabled defaultValue={user.displayName} name="name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className=" text-sm">Email</span>
+                                                    </label>
+                                                    <input disabled type="email" name="email" defaultValue={user.email} className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className=" text-sm">Food Image Url</span>
+                                                    </label>
+                                                    <input type="url" name="foodimage" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Food Name</span>
+                                                    </label>
+                                                    <input type="text" name="food_name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Food Category</span>
+                                                    </label>
+                                                    <input type="text" name="food_category" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Price</span>
+                                                    </label>
+                                                    <input type="number" placeholder="$" name="price" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Quantity</span>
+                                                    </label>
+                                                    <input type="number" name="quantity" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Food Origin</span>
+                                                    </label>
+                                                    <input type="text" name="food_origin" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="label">
+                                                        <span className="label-text">Description</span>
+                                                    </label>
+                                                    <textarea rows="10" type="text" name="description" wrap="hard" className="border-b px-4 h-20   border-gray-300 text-base outline-none" required />
+
+                                                </div>
+                                                <div className="flex justify-end mt-6">
+                                                    <button className=" w-full py-3 px-4 rounded-lg bg-[#f56511] hover:bg-[#f55211] text-base  text-white font-semibold">Update</button>
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </label>
             </th>
             <td>
@@ -31,7 +128,7 @@ const MyFoodItem = ({foodItem}) => {
 
             </td>
             <td>{date}</td>
-            
+
         </tr>
     );
 };

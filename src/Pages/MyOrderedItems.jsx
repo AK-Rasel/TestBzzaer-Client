@@ -18,6 +18,18 @@ const MyOrderedItems = () => {
             .then(data => setOrderedInformations(data))
     }, [])
     // console.log(orderedInformations)
+    const deleteHandler = id => {
+        const process = confirm('are you ure you want to delete')
+        if (process) {
+            fetch(`http://localhost:5000/purchase/${id}`,{
+                method: "DELETE"
+            })
+            .then(res => res.json())
+            .then(date => {
+                console.log(date)
+            })
+        }
+    }
     return (
         <div className="">
              <Helmet>
@@ -44,7 +56,7 @@ const MyOrderedItems = () => {
                             {/* row 1 */}
                             {
                                 orderedInformations?.map(orderedInformation => <OrderedInformations key={orderedInformation._id}
-                                    orderedInformation={orderedInformation}></OrderedInformations>)
+                                    orderedInformation={orderedInformation} deleteHandler= {deleteHandler} ></OrderedInformations>)
                             }
                         </tbody>
                     </table>

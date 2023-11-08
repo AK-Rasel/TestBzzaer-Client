@@ -16,6 +16,45 @@ const MyFoodItems = () => {
         }))
     },[])
 
+
+    
+    const updateFoodHandler= e =>{
+        e.preventDefault()
+      const from = e.target
+      const foodname = from.food_name.value
+      const price = from.price.value
+      const quantity = from.quantity.value
+      const email = from.email.value
+      const name = from.name.value
+      const foodcategory = from.food_category.value
+      const country = from.food_origin.value
+      const description = from.description.value
+      const foodimage = from.foodimage.value
+      console.log(foodname,price,quantity,email,name,foodcategory,country,description)
+
+     
+      const updateFood = {foodname,price :price ,quantity,email,name,foodcategory,country,description,foodimage}
+
+
+
+console.log(updateFood)
+
+        // fetch(`http://localhost:5000/all-food-items/${id}`,{
+        // method: 'POST',
+        // headers: {
+        //     'content-type':'application/json'
+        // },
+        // body: JSON.stringify({status: 'confirm'})
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data)
+        //     if (data.modifiedCount> 0) {
+        //         // 
+        //     }
+        // })
+    } 
+
     return (
         <div className="">
         <Helmet>
@@ -42,7 +81,7 @@ const MyFoodItems = () => {
                        {/* row 1 */}
                        {
                            foodItems?.map(foodItem => <MyFoodItem key={foodItem._id}
-                            foodItem={foodItem}></MyFoodItem>)
+                            foodItem={foodItem} updateFoodHandler= {updateFoodHandler}></MyFoodItem>)
                        }
                    </tbody>
                </table>
