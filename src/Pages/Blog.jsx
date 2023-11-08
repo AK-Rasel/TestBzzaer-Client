@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet";
 
 
 const Blog = () => {
     return (
         <div >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Blog</title>
+            </Helmet>
             <div className="hero min-h-[40vh] mb-16" style={{ backgroundImage: 'url(https://i.ibb.co/KFBTyJW/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay.jpg)' }}>
                     <div className="hero-overlay "></div>
                     <div className="hero-content text-center text-neutral-content">

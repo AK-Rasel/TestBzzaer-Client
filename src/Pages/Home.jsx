@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet";
 import Banner from "../components/Banner";
 
 import ClientsFeedback from "../components/ClientsFeedback";
@@ -11,10 +12,14 @@ import TopFoodSection from "../components/TopFoodSection";
 const Home = () => {
     return (
         <div>
-            <Banner/>
-            <TopFoodSection/>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Home</title>
+            </Helmet>
+            <Banner />
+            <TopFoodSection />
             <Gallery />
-            <ClientsFeedback/>
+            <ClientsFeedback />
         </div>
     );
 };

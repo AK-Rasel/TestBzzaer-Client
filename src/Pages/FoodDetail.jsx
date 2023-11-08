@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData,  } from "react-router-dom";
 
 
@@ -15,6 +16,10 @@ const FoodDetail = () => {
     // console.log(singleFoodDetail)
     return (
         <div className="flex justify-center min-h-[60vh]  ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Food Detail</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row flex-1 ">
                 <img src={foodimage} className="max-w-sm rounded-lg shadow-2xl" />
                 <div className="flex-1 ml-4 ">

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import { useState } from "react";
 import OrderedInformations from "../components/OrderedInformations/OrderedInformations";
+import { Helmet } from "react-helmet";
 // import OrderedInformations from "../components/OrderedInformations/OrderedInformations";
 
 
@@ -19,6 +20,10 @@ const MyOrderedItems = () => {
     // console.log(orderedInformations)
     return (
         <div className="">
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Ordered items</title>
+            </Helmet>
             <div className="container  mx-auto ">
 
                 <div className="overflow-x-auto ">

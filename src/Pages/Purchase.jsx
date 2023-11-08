@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 // import { useState } from "react";
 const Purchase = () => {
   const { user } = useContext(AuthContext);
@@ -61,6 +62,10 @@ const Purchase = () => {
 
   return (
     <div className="hero  min-h-[70vh] opacity-6 " style={{ backgroundImage: 'url(https://i.ibb.co/rQGt2cf/top-view-table-full-delicious-food.jpg)' }}>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Purchase</title>
+            </Helmet>
       <div className=" items-center justify-center m  lg:flex w-full   p-8">
 
         {/* card body */}

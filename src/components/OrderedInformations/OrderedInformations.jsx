@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 
 
 const OrderedInformations = ({ orderedInformation }) => {
@@ -19,6 +19,7 @@ const OrderedInformations = ({ orderedInformation }) => {
     }
     return (
         <tr>
+           
             <th>
                 <label>
                     <button onClick={() => deleteHandler(_id)} className="btn btn-circle">

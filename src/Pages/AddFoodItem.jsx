@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 
@@ -20,9 +21,10 @@ const AddFoodItem = () => {
       const foodcategory = from.food_category.value
       const country = from.food_origin.value
       const description = from.description.value
+      const foodimage = from.foodimage.value
       console.log(foodname,price,quantity,email,name,foodcategory,country,description)
 
-     const addFood = {foodname,price :price ,quantity,email,name,foodcategory,country,description}
+     const addFood = {foodname,price :price ,quantity,email,name,foodcategory,country,description,foodimage}
 
 
 
@@ -42,6 +44,10 @@ const AddFoodItem = () => {
     }
     return (
         <div className="hero  min-h-[70vh] opacity-6 " style={{backgroundImage: 'url(https://i.ibb.co/rQGt2cf/top-view-table-full-delicious-food.jpg)'}}>
+           <Helmet>
+                <meta charSet="utf-8" />
+                <title>TasteBazaar | Add food</title>
+            </Helmet>
         <div className=" items-center justify-center m  lg:flex w-full   p-8">
           
           {/* card body */}
@@ -65,6 +71,12 @@ const AddFoodItem = () => {
                     <span className=" text-sm">Email</span>
                   </label>
                   <input disabled type="email" name="email"  defaultValue={user.email} className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className=" text-sm">Food Image Url</span>
+                  </label>
+                  <input  type="url" name="foodimage"  className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
                 </div>
                 <div className="form-control">
                   <label className="label">
