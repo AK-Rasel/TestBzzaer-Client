@@ -1,8 +1,11 @@
-# React + Vite
+## project name  
+ - TasteBazaar
+ ## live link : https://tastebazaar-2.web.app/
+ ## main Features
+ - home: navbar , footer,Top Food, Our Food Gallery,Clients Feedback,Add new product
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - only user see : My food items,Ordered items,Add food item,Ordered items
+ - The routes have been done in a user spacing way, only that user can see their own products and no one else can see them
+ - Purchase , My food items,Ordered items private route
+ - Register password less than 6 characters, not an uppercase letter, a special character not display message. 
+ 

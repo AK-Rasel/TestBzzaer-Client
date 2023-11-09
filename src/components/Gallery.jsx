@@ -4,7 +4,7 @@ import { useState } from "react";
 const Gallery = () => {
     const [categorys, setCategorys] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/all-food-items')
+        fetch('https://taste-bazaar-server.vercel.app/all-food-items')
             .then(res => res.json())
             .then(data => setCategorys(data))
     }, [])

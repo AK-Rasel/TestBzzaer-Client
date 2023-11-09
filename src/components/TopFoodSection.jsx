@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const TopFoodSection = () => {
     const [topFoods, setTopFood] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/all-food-items')
+        fetch('https://taste-bazaar-server.vercel.app/all-food-items')
             .then(res => res.json())
             .then(data => setTopFood(data))
     }, [])

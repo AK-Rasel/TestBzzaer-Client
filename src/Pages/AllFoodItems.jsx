@@ -20,7 +20,7 @@ const AllFoodItems = () => {
     // const pages = [...Array(numberOfPages).keys()]
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-food-items-count')
+        fetch('https://taste-bazaar-server.vercel.app/all-food-items-count')
         .then(res => res.json())
         .then(data => {
             setPagecount(data)

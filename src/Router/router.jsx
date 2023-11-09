@@ -16,55 +16,55 @@ import MyOrderedItems from "../Pages/MyOrderedItems";
 
 const router = createBrowserRouter([
     {
-      path: "/",
-      element:<MainLayout/>,
-      errorElement:<Error/>,
-      children:[
-        {
-            path:"/",
-            element:<Home/>
-        },
-        {
-            path:"all-food-items",
-            element:<AllFoodItems/>,
-            loader:() => fetch('http://localhost:5000/all-food-items')
-        },
-        {
-            path:"blog",
-            element:<Blog/>
-        },
-        {
-            path:"my-food-items",
-            element:<PrivetRouter><MyFoodItems/></PrivetRouter>
-        },
-        {
-            path:"food-detail/:id",
-            element:<FoodDetail/>,
-            loader: ({params}) => fetch(`http://localhost:5000/all-food-items/${params.id}`)
-        },
-        {
-            path:"added-food-item",
-            element:<PrivetRouter><AddFoodItem/></PrivetRouter>
-        },
-        {
-            path:"purchase/:id",
-            element:<PrivetRouter><Purchase/></PrivetRouter>,
-            loader: ({params}) => fetch(`http://localhost:5000/all-food-items/purchase-detail/${params.id}`)
-            
-        },
-        {
-            path:"ordered-items",
-            element:<PrivetRouter><MyOrderedItems/></PrivetRouter>
-        },
-        {
-            path:"login",
-            element:<Login/>
-        },
-        {
-            path:"register",
-            element:<Register/>
-        },
-      ]
+        path: "/",
+        element: <MainLayout />,
+        errorElement: <Error />,
+        children: [
+            {
+                path: "/",
+                element: <Home />
+            },
+            {
+                path: "all-food-items",
+                element: <AllFoodItems />,
+                loader: () => fetch('https://taste-bazaar-server.vercel.app/all-food-items')
+            },
+            {
+                path: "blog",
+                element: <Blog />
+            },
+            {
+                path: "my-food-items",
+                element: <PrivetRouter><MyFoodItems /></PrivetRouter>
+            },
+            {
+                path: "food-detail/:id",
+                element: <FoodDetail />,
+                loader: ({ params }) => fetch(`https://taste-bazaar-server.vercel.app/all-food-items/${params.id}`)
+            },
+            {
+                path: "added-food-item",
+                element: <PrivetRouter><AddFoodItem /></PrivetRouter>
+            },
+            {
+                path: "purchase/:id",
+                element: <PrivetRouter><Purchase /></PrivetRouter>,
+                loader: ({ params }) => fetch(`https://taste-bazaar-server.vercel.app/all-food-items/purchase-detail/${params.id}`)
+
+            },
+            {
+                path: "ordered-items",
+                element: <PrivetRouter><MyOrderedItems /></PrivetRouter>
+            },
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "register",
+                element: <Register />
+            },
+        ]
     },
-  ]);
-  export default router;
+]);
+export default router;
