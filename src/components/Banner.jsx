@@ -1,68 +1,33 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthProvider';
 
 
 const Banner = () => {
+  const {user} = useContext(AuthContext)
   return (
-    <div >
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-
-        autoplay={{
-          delay: 8000,
-          disableOnInteraction: false,
-
-        }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        
-        navigation={true}
-        modules={[ Autoplay,Pagination, Navigation]}
-        className="mySwiper  lg:h-[80vh]    "
-      >
-        <div className='relative'>
-          <SwiperSlide><div >
-          <img className=' object-cover h-[80vh] w-full   ' src="https://i.ibb.co/CM3xrpJ/Login-img.jpg" alt="" />
-            <div className='max-w-7xlxl    z-10 absolute top-1/3 inset-0 left-0 right-0 translate-x-1/4 bottom-0'><div><h1 className=' mb-6 w-1/2  lg:text-6xl  text-4xl font-Montserrat font-extrabold  text-white'>Welcome to <span>TasteBazaar</span></h1> <p className='  text-white mb-3 lg:text-lg lg:text-center  lg:font-semibold lg:w-1/3 w-1/2  '>Where Culinary Passion Meets Seamless Management! Explore a World of Efficiency and Flavorful Excellence.</p>
-            <Link to="/login" className='lg:flex lg:justify-center lg:w-2/6 mt-5 '> <button className='btn  bg-[#f56511] hover:bg-[#f56511] text-white outline-none border-none rounded-xl hover:rounded-full'>Join Us Today</button></Link>
-            </div>
-            
-            </div>
-            
-
-          </div></SwiperSlide>
+ 
+    <div className="hero min-h-[70vh]" style={{backgroundImage: 'url(https://i.ibb.co/CM3xrpJ/Login-img.jpg)'}}>
+  <div className="hero-overlay bg-opacity-50"></div>
+  <div className="hero-content  text-center text-neutral-content">
+    <div className="max-w-2xl">
+      <h1 className="mb-5 text-5xl font-bold">Welcome to TasteBazaar</h1>
+      <p className="mb-5">Where Culinary Passion Meets Seamless Management! Explore a World of Efficiency and Flavorful Excellence.</p>
 
 
-          <SwiperSlide><div >
-            <div className=' font-Ubuntu space-y-1 tracking-wide  z-10 absolute top-1/3 left-0 right-1/2 translate-x-1/4 bottom-0'><div><h1 className=' mb-6  lg:text-6xl  text-3xl font-Montserrat font-extrabold  text-white'>Welcome to <br /> <span>TasteBazaar</span></h1> 
-            <Link to={'/all-food-items'}> <button className='btn  bg-[#f56511] hover:bg-[#f56511] text-white outline-none border-none rounded-xl hover:rounded-full mt-4'>Explore Menu</button></Link>
-            </div></div>
-            <img className=' object-cover h-[80vh] w-full   ' src="https://i.ibb.co/KFBTyJW/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay.jpg" alt="" />
-
-          </div></SwiperSlide>
+      {
+        user ? <Link to="/all-food-items" className='mt-5 '> <button className='btn  bg-[#f56511] hover:bg-[#f56511] text-white outline-none border-none rounded-xl hover:rounded-full'>Explore Our Products</button></Link> : <Link to="/login" className='mt-5 '> <button className='btn  bg-[#f56511] hover:bg-[#f56511] text-white outline-none border-none rounded-xl hover:rounded-full'>Join Us Today</button></Link>
+      }
 
 
-
-        </div>
-
-
-
-
-
-      </Swiper>
+      {/* <Link to="/login" className='mt-5 '> <button className='btn  bg-[#f56511] hover:bg-[#f56511] text-white outline-none border-none rounded-xl hover:rounded-full'>Join Us Today</button></Link> */}
     </div>
+  </div>
+</div>
   );
 };
 

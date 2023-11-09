@@ -40,6 +40,7 @@ const AddFoodItem = () => {
       if (data.insertedId) {
         toast.success('Purchase successfully Done')
       }
+      from.reset()
     })
     }
     return (

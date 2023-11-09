@@ -40,7 +40,7 @@ const Purchase = () => {
       country,
       name
     }
-    console.log(purchase)
+    // console.log(purchase)
 
     fetch('http://localhost:5000/purchase',{
       method: 'POST',
