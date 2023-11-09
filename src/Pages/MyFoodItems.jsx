@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Helmet } from "react-helmet";
 import MyFoodItem from "../components/MyFoodItems/MyFoodItem";
+import toast from "react-hot-toast";
 
 
 const MyFoodItems = () => {
@@ -30,7 +31,7 @@ const MyFoodItems = () => {
       const country = from.food_origin.value
       const description = from.description.value
       const foodimage = from.foodimage.value
-      console.log(foodname,price,quantity,email,name,foodcategory,country,description)
+    //   console.log(foodname,price,quantity,email,name,foodcategory,country,description)
 
      
       const updateFood = {foodname,price :price ,quantity,email,name,foodcategory,country,description,foodimage}
@@ -39,21 +40,22 @@ const MyFoodItems = () => {
 
 console.log(updateFood)
 
-        // fetch(`http://localhost:5000/all-food-items/${id}`,{
-        // method: 'POST',
-        // headers: {
-        //     'content-type':'application/json'
-        // },
-        // body: JSON.stringify({status: 'confirm'})
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data)
-        //     if (data.modifiedCount> 0) {
-        //         // 
-        //     }
-        // })
+        fetch(`http://localhost:5000/all-food-items/${_id}`,{
+        method: 'PUT',
+        headers: {
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(updateFood)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.insertedId) {
+                toast.success('Successfully toasted!')
+            }
+        })
     } 
+    
 
     return (
         <div className="">

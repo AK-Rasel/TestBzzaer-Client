@@ -1,9 +1,34 @@
+// import { data } from "autoprefixer";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 
 const AllFoodItems = () => {
     const allFoodData = useLoaderData()
+    const [pagecount, setPagecount] = useState([]) 
+    const {pageCount} = pagecount
+    // const [itemPages,setitemPages] = useState(10)
+    // const [showPages,setShowPages] = useState(0)
+    const itemPages = 10;
+    const numberOfPages = Math.ceil(pageCount / itemPages)
+    const pages = []
+    for (let i = 0; i < numberOfPages; i++) {
+        
+        pages.push(i)
+    }
+    // const pages = [...Array(numberOfPages).keys()]
+
+    useEffect(() => {
+        fetch('http://localhost:5000/all-food-items-count')
+        .then(res => res.json())
+        .then(data => {
+            setPagecount(data)
+        })
+    },[])
+    
+    
+    console.log(pages)
     // console.log(allFoodData)
     return (
         <div>
@@ -60,7 +85,9 @@ const AllFoodItems = () => {
                         </div>))
                     }
                 </div>
+                
                </div>
+               
             </div>
         </div>
     );

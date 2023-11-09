@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 
 const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
     const { user } = useContext(AuthContext)
-    const { _id, foodname, price, name, country, date, foodimage } = foodItem
+    const { _id, description, foodname, price, name, country, date, foodimage, foodcategory, quantity
+
+    } = foodItem
 
 
 
@@ -43,48 +45,50 @@ const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
                                                     <label className="label">
                                                         <span className=" text-sm">Food Image Url</span>
                                                     </label>
-                                                    <input type="url" name="foodimage" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="url" defaultValue={foodimage} name="foodimage" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Food Name</span>
                                                     </label>
-                                                    <input type="text" name="food_name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="text" defaultValue={foodname} name="food_name" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Food Category</span>
                                                     </label>
-                                                    <input type="text" name="food_category" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="text" defaultValue={foodcategory
+
+                                                    } name="food_category" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Price</span>
                                                     </label>
-                                                    <input type="number" placeholder="$" name="price" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="number" placeholder="$" name="price" defaultValue={price} className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Quantity</span>
                                                     </label>
-                                                    <input type="number" name="quantity" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="number " defaultValue={quantity} name="quantity" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Food Origin</span>
                                                     </label>
-                                                    <input type="text" name="food_origin" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
+                                                    <input type="text" defaultValue={country} name="food_origin" className="border-b px-4 h-7 text-lg  border-gray-300  outline-none" required />
 
                                                 </div>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className="label-text">Description</span>
                                                     </label>
-                                                    <textarea rows="10" type="text" name="description" wrap="hard" className="border-b px-4 h-20   border-gray-300 text-base outline-none" required />
+                                                    <textarea defaultValue={description} rows="10" type="text" name="description" wrap="hard" className="border-b px-4 h-20   border-gray-300 text-base outline-none" required />
 
                                                 </div>
                                                 <div className="flex justify-end mt-6">
