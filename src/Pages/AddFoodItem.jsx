@@ -28,7 +28,7 @@ const AddFoodItem = () => {
 
 
 
-      fetch('https://taste-bazaar-server.vercel.app/all-food-items',{
+      fetch('http://localhost:5000/all-food-items',{
       method: 'POST',
       headers: {
         'content-type':'application/json'

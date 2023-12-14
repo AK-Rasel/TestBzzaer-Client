@@ -27,8 +27,8 @@ const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
                                     <div className=" w-full shadow-2xl bg-white rounded-lg">
 
                                         <div className="card-body  gap-4">
-                                            <p className="font-bold  normal-case text-3xl "><span className="text-[#f56511]">Add food</span> item</p>
-                                            <form onSubmit={updateFoodHandler}>
+                                            <p className="font-bold  normal-case text-3xl "><span className="text-[#f56511]">Update food</span> item</p>
+                                            <form onSubmit={() => updateFoodHandler(_id)}>
                                                 <div className="form-control">
                                                     <label className="label">
                                                         <span className=" text-sm">Name</span>
@@ -122,7 +122,7 @@ const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
                     </div>
                     <div>
                         <div className="font-bold">{foodname}</div>
-                        <div className="text-sm opacity-50">{'$' + price}</div>
+                        
                     </div>
                 </div>
             </td>
@@ -131,7 +131,7 @@ const MyFoodItem = ({ foodItem, updateFoodHandler }) => {
                 <br />
 
             </td>
-            <td>{date}</td>
+            <td>{'$' + price}</td>
 
         </tr>
     );

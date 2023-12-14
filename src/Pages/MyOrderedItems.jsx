@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 const MyOrderedItems = () => {
     const { user } = useContext(AuthContext)
     const [orderedInformations, setOrderedInformations] = useState([])
-    const url = `https://taste-bazaar-server.vercel.app/purchase/?email=${user.email}`
+    const url = `http://localhost:5000/purchase/?email=${user.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -22,7 +22,7 @@ const MyOrderedItems = () => {
     // console.log(orderedInformations)
     const deleteHandler = id => {
         
-            fetch(`https://taste-bazaar-server.vercel.app/purchase/${id}`,{
+            fetch(`http://localhost:5000/purchase/${id}`,{
                 method: "DELETE"
             })
             .then(res => res.json())
@@ -51,11 +51,11 @@ const MyOrderedItems = () => {
                         <thead>
                             <tr>
                                 <th className="text-base">
-                                Items Name
+                                
                                 </th>
-                                <th className="text-base">owner</th>
-                                <th className="text-base">Job</th>
-                                <th className="text-base">Favorite Color</th>
+                                <th className="text-base">item</th>
+                                <th className="text-base">Food owner</th>
+                                <th className="text-base">Date</th>
                                 <th className="text-base"></th>
                             </tr>
                         </thead>

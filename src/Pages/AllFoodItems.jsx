@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
-
+import TopFoodSectionSkeleton from "../components/TopFoodSectionSkeleton";
+import axios from 'axios';
 
 const AllFoodItems = () => {
     const allFoodData = useLoaderData()
@@ -18,17 +19,21 @@ const AllFoodItems = () => {
         pages.push(i)
     }
     // const pages = [...Array(numberOfPages).keys()]
+    const [skeletonLoding, setSkeletonLoding] = useState(true)
+   useEffect(() => {
+        setTimeout(() => {
+            axios.get('http://localhost:5000/all-food-items')
+                .then(res => {
+                    setPagecount(res.data)
+                    setSkeletonLoding(false)
+                })
+            // .then(data => setTopFood(data))
+        }, 1000);
 
-    useEffect(() => {
-        fetch('https://taste-bazaar-server.vercel.app/all-food-items-count')
-        .then(res => res.json())
-        .then(data => {
-            setPagecount(data)
-        })
-    },[])
+    }, [])
     
     
-    console.log(pages)
+    // console.log(pages)
     // console.log(allFoodData)
     return (
         <div>
@@ -49,8 +54,19 @@ const AllFoodItems = () => {
             {/*  */}
             <div className="max-w-[1280px] mx-auto">
                <div className="mx-10">
-               <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
+               <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10">
                     {
+                        skeletonLoding ? 
+                        <>
+                        <TopFoodSectionSkeleton/>
+                        <TopFoodSectionSkeleton/>
+                        <TopFoodSectionSkeleton/>
+                        <TopFoodSectionSkeleton/>
+                        <TopFoodSectionSkeleton/>
+                        <TopFoodSectionSkeleton/>
+                        
+                        
+                        </> :
                         allFoodData.map(foodData => (<div key={foodData._id}>
 
                             <div className="card  bg-base-100 shadow-xl">

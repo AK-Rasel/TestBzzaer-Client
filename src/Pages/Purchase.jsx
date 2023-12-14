@@ -42,7 +42,7 @@ const Purchase = () => {
     }
     // console.log(purchase)
 
-    fetch('https://taste-bazaar-server.vercel.app/purchase',{
+    fetch('http://localhost:5000/purchase',{
       method: 'POST',
       headers: {
         'content-type':'application/json'

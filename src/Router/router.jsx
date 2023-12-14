@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: "all-food-items",
                 element: <AllFoodItems />,
-                loader: () => fetch('https://taste-bazaar-server.vercel.app/all-food-items')
+                loader: () => fetch('http://localhost:5000/all-food-items')
             },
             {
                 path: "blog",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: "food-detail/:id",
                 element: <FoodDetail />,
-                loader: ({ params }) => fetch(`https://taste-bazaar-server.vercel.app/all-food-items/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/all-food-items/${params.id}`)
             },
             {
                 path: "added-food-item",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: "purchase/:id",
                 element: <PrivetRouter><Purchase /></PrivetRouter>,
-                loader: ({ params }) => fetch(`https://taste-bazaar-server.vercel.app/all-food-items/purchase-detail/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/all-food-items/purchase-detail/${params.id}`)
 
             },
             {

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const MyFoodItems = () => {
     const {user} = useContext(AuthContext)
     const [foodItems,setFoodItems]= useState([])
-    const url = `https://taste-bazaar-server.vercel.app/all-food-items/?email=${user.email}`
+    const url = `http://localhost:5000/all-food-items/?email=${user.email}`
     useEffect(() => {
         fetch(url)
         .then(res => res.json()
@@ -40,7 +40,7 @@ const MyFoodItems = () => {
 
 console.log(updateFood)
 
-        fetch(`https://taste-bazaar-server.vercel.app/all-food-items/${_id}`,{
+        fetch(`http://localhost:5000/all-food-items/${_id}`,{
         method: 'PUT',
         headers: {
             'content-type':'application/json'
@@ -55,6 +55,7 @@ console.log(updateFood)
             }
         })
     } 
+   
     
 
     return (
@@ -71,12 +72,11 @@ console.log(updateFood)
                    <thead>
                        <tr>
                            <th className="text-base">
-                           Items Name
+                           Update
                            </th>
-                           <th className="text-base">owner</th>
-                           <th className="text-base">Job</th>
-                           <th className="text-base">Favorite Color</th>
-                           <th className="text-base"></th>
+                           <th className="text-base">Item</th>
+                           <th className="text-base">Owner Name</th>
+                           <th className="text-base">Price</th>
                        </tr>
                    </thead>
                    <tbody >
